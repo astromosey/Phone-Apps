@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<head>
+    <title>Notes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-image: url('images/notes\ backgroumd.jpeg'); 
+            background-size: cover;
+            background-position: center;
+        }
+        .notes-container {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: left;
+        }
+        #appStoreIcon {
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            cursor: pointer;
+            width: 30px; 
+            height: auto; 
+        }
+        h1 {
+            margin-left: 10px; 
+        }
+        textarea {
+            width: 100%;
+            max-width: 600px; 
+            height: 300px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #3498db;
+            color: #fff;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+
+<a href="index.html">
+    <img id="appStoreIcon" src="images/apps.png" alt="App Store Icon" onclick="clearNote()">
+</a>
+
+<div class="notes-container">
+    <h1>Notes</h1>
+
+    <textarea id="noteText" placeholder="Type your notes here..."></textarea>
+
+    <button onclick="saveNote()">Save Note</button>
+</div>
+
+<script>
+    function saveNote() {
+        const noteText = document.getElementById('noteText').value;
+        localStorage.setItem('note', noteText);
+        alert('Note saved successfully!');
+    }
+
+    // Load saved note when the page is loaded
+    window.onload = function() {
+        const savedNote = localStorage.getItem('note');
+        if (savedNote) {
+            document.getElementById('noteText').value = savedNote;
+        }
+    };
+
+    function clearNote() {
+        document.getElementById('noteText').value = ''; // Clear the content of the note textarea
+    }
+</script>
+
+</body>
+</html>

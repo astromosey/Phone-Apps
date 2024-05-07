@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<head>
+    <title>Photo Gallery</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f2f2f2;
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-gap: 10px;
+        }
+        .photo {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+        }
+        .photo:hover {
+            transform: scale(1.05);
+        }
+        .slideshow-container {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+        .slide {
+            display: block;
+            max-width: 90%;
+            max-height: 90%;
+            margin: auto;
+        }
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #fff;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        .prev {
+            left: 20px;
+        }
+        .next {
+            right: 20px;
+        }
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: #fff;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        #homeIcon {
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            cursor: pointer;
+            width: 30px;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+
+<a href="index.html">
+    <img id="homeIcon" src="images/apps.png" alt="Home Icon">
+</a>
+
+<h1>Photo Gallery</h1>
+
+<div class="gallery">
+    <img class="photo" src="WC/final.jpeg" alt="Photo 1" onclick="openSlideshow(0)">
+    <img class="photo" src="WC/richarlison.jpeg" alt="Photo 2" onclick="openSlideshow(1)">
+    <img class="photo" src="WC/croatia.jpeg" alt="Photo 3" onclick="openSlideshow(2)">
+    <img class="photo" src="WC/suii.jpeg" alt="Photo 4" onclick="openSlideshow(3)">
+    <img class="photo" src="WC/spain.jpeg" alt="Photo 5" onclick="openSlideshow(4)">
+    <img class="photo" src="WC/mbappe.jpeg" alt="Photo 6" onclick="openSlideshow(5)">
+    <img class="photo" src="WC/morocco.jpeg" alt="Photo 7" onclick="openSlideshow(6)">
+    <img class="photo" src="WC/vermany.jpeg" alt="Photo 8" onclick="openSlideshow(7)">
+    <img class="photo" src="WC/brazilbaila.jpeg" alt="Photo 9" onclick="openSlideshow(8)">
+    <img class="photo" src="WC/argentina.jpeg" alt="Photo 10" onclick="openSlideshow(9)">
+    <img class="photo" src="WC/england.jpeg" alt="Photo 11" onclick="openSlideshow(10)">
+    <img class="photo" src="WC/saudi.jpeg" alt="Photo 12" onclick="openSlideshow(11)">
+    <img class="photo" src="WC/spain-morocco.jpeg" alt="Photo 13" onclick="openSlideshow(12)">
+    <img class="photo" src="WC/moroccocoach.jpeg" alt="Photo 14" onclick="openSlideshow(13)">
+    <img class="photo" src="WC/portugalout.jpeg" alt="Photo 15" onclick="openSlideshow(14)">
+    <img class="photo" src="WC/japan.jpeg" alt="Photo 16" onclick="openSlideshow(15)">
+    <img class="photo" src="WC/netherland-arg.jpeg" alt="Photo 17" onclick="openSlideshow(16)">
+    <img class="photo" src="WC/usa.jpeg" alt="Photo 18" onclick="openSlideshow(17)">
+    <img class="photo" src="WC/giroud.jpeg" alt="Photo 19" onclick="openSlideshow(18)">
+    <img class="photo" src="WC/neyout.jpeg" alt="Photo 20" onclick="openSlideshow(19)">
+    <img class="photo" src="WC/serbia.jpeg" alt="Photo 21" onclick="openSlideshow(20)">
+    <img class="photo" src="WC/suarez.jpeg" alt="Photo 22" onclick="openSlideshow(21)">
+    <img class="photo" src="WC/kylian.jpeg" alt="Photo 23" onclick="openSlideshow(22)">
+    <img class="photo" src="WC/cristiano.jpeg" alt="Photo 24" onclick="openSlideshow(23)">
+
+</div>
+
+<div class="slideshow-container" id="slideshow">
+    <span class="close" onclick="closeSlideshow()">&times;</span>
+    <img class="slide" src="" alt="Slideshow Image">
+    <span class="prev" onclick="prevSlide()">&#10094;</span>
+    <span class="next" onclick="nextSlide()">&#10095;</span>
+</div>
+
+<script>
+    let slides = document.querySelectorAll('.photo');
+    let slideshow = document.getElementById('slideshow');
+    let slideIndex = 0;
+
+    function openSlideshow(index) {
+        slideIndex = index;
+        showSlide(slideIndex);
+        slideshow.style.display = 'block';
+    }
+
+    function closeSlideshow() {
+        slideshow.style.display = 'none';
+    }
+
+    function prevSlide() {
+        slideIndex--;
+        if (slideIndex < 0) {
+            slideIndex = slides.length - 1;
+        }
+        showSlide(slideIndex);
+    }
+
+    function nextSlide() {
+        slideIndex++;
+        if (slideIndex >= slides.length) {
+            slideIndex = 0;
+        }
+        showSlide(slideIndex);
+    }
+
+    function showSlide(index) {
+        document.querySelector('.slide').src = slides[index].src;
+    }
+</script>
+
+</body>
+</html>

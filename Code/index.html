@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<head>
+    <title>My App Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('images/iOS-17-wallpaper.jpeg'); 
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        h1 {
+            color: #fff;
+            text-align: center;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            max-width: 500px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            width: 100%;
+            text-align: center;
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #3498db;
+        }
+        .app {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .app a {
+            text-decoration: none;
+            color: inherit;
+        }
+        .app i {
+            font-size: 48px;
+            margin-bottom: 10px;
+            color: #3498db;
+            cursor: pointer;
+        }
+        .app span {
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Hello, welcome to your iPhone.</h1>
+
+<div class="container">
+    <div class="header">
+        Pick an app to open:
+    </div>
+    <div class="app">
+        <a href="calculator.html">
+            <i class="fas fa-calculator"></i>
+            <span>Calculator</span>
+        </a>
+    </div>
+    <div class="app">
+        <a href="notes.html">
+            <i class="far fa-sticky-note"></i>
+            <span>Notes</span>
+        </a>
+    </div>
+    <div class="app">
+        <a href="photos.html">
+            <i class="far fa-images"></i>
+            <span>Photos</span>
+        </a>
+    </div>
+    <div class="app">
+        <a href="timeclock.html">
+            <i class="far fa-clock"></i>
+            <span>Time Clock</span>
+        </a>
+    </div>
+</div>
+
+</body>
+</html>

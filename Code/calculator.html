@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<head>
+    <title>Calculator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('images/calc_background.png'); 
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+        }
+        #appStoreIcon {
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            cursor: pointer;
+            width: 30px; 
+            height: auto; 
+        }
+        .calculator-container {
+            margin-top: 60px; 
+            position: relative; 
+        }
+        .calculator {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: inline-block; 
+        }
+        #result {
+            width: calc(100% - 10px);
+            margin-bottom: 10px;
+            padding: 10px;
+            font-size: 24px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .keys {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+        .keys button {
+            padding: 15px;
+            font-size: 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #3498db;
+            color: #fff;
+            transition: background-color 0.3s;
+        }
+        .keys button:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+
+<a href="index.html">
+    <img id="appStoreIcon" src="images/apps.png" alt="App Store Icon">
+</a>
+
+<div class="calculator-container">
+    <div class="calculator">
+        <input type="text" id="result" disabled>
+        <div class="keys">
+            <button onclick="clearResult()">C</button>
+            <button onclick="appendToResult('7')">7</button>
+            <button onclick="appendToResult('8')">8</button>
+            <button onclick="appendToResult('9')">9</button>
+            <button onclick="appendToResult('/')">/</button>
+            <button onclick="appendToResult('4')">4</button>
+            <button onclick="appendToResult('5')">5</button>
+            <button onclick="appendToResult('6')">6</button>
+            <button onclick="appendToResult('*')">*</button>
+            <button onclick="appendToResult('1')">1</button>
+            <button onclick="appendToResult('2')">2</button>
+            <button onclick="appendToResult('3')">3</button>
+            <button onclick="appendToResult('-')">-</button>
+            <button onclick="appendToResult('0')">0</button>
+            <button onclick="appendToResult('.')">.</button>
+            <button onclick="calculateResult()">=</button>
+            <button onclick="appendToResult('+')">+</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    function appendToResult(value) {
+        document.getElementById('result').value += value;
+    }
+
+    function clearResult() {
+        document.getElementById('result').value = '';
+    }
+
+    function calculateResult() {
+        let result = eval(document.getElementById('result').value);
+        document.getElementById('result').value = result;
+    }
+</script>
+
+</body>
+</html>
